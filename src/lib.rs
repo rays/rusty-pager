@@ -27,7 +27,7 @@
 //!
 //!    // trigger a new event
 //!    event_id = match event_mgr.trigger(
-//!        &event_id,            // this is currently None
+//!        &event_id,            // this is currently None, so a new event will be triggered
 //!        "some message",
 //!        "my-monitoring-agent",
 //!        EventSeverity::Critical,
