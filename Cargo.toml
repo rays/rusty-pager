@@ -1,0 +1,13 @@
+[package]
+name = "rusty-pager"
+version = "0.1.0"
+authors = ["Sean Bruton <sean@uberfoo.net>"]
+
+[dependencies]
+serde = "1.0.59"
+serde_derive = "1.0.59"
+serde_json = "1.0.17"
+chrono = "0.4.2"
+reqwest = "0.8.5"
+error-chain = "0.11.0"
+uuid = { version = "0.6.3", features = ["v4"] }
