@@ -2,6 +2,11 @@
 name = "rusty-pager"
 version = "0.1.0"
 authors = ["Sean Bruton <sean@uberfoo.net>"]
+description = "unoffical rust interface for the pagerduty api"
+repository = "https://github.com/sbruton/rusty-pager"
+license = "MIT"
+keywords = ["pagerduty"]
+categories = ["api-bindings", "web-programming"]
 
 [dependencies]
 serde = "1.0.59"
