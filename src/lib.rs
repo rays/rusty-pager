@@ -7,7 +7,7 @@
     unused_must_use
 )]
 
-//! The `rust_pager` crate provides a Rust SDK for the PagerDuty APIs.
+//! The `rusty_pager` crate provides a Rust SDK for the PagerDuty APIs.
 //!
 //! Currently only the Events v2 API is supported.
 //!
