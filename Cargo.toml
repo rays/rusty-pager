@@ -1,6 +1,6 @@
 [package]
 name = "rusty-pager"
-version = "0.1.w"
+version = "0.1.2"
 authors = ["Sean Bruton <sean@uberfoo.net>, Ray Slakinski <ray@sdf1.net>"]
 description = "unoffical rust interface for the pagerduty api"
 repository = "https://github.com/sbruton/rusty-pager"
