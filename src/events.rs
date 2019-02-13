@@ -1,7 +1,6 @@
 use super::errors::*;
 
-use reqwest::header::ContentType;
-use reqwest::{mime, Client as HttpClient, StatusCode};
+use reqwest::{Client as HttpClient, StatusCode};
 use serde_json::to_string as stringify;
 use uuid::Uuid;
 
@@ -53,7 +52,7 @@ impl TriggerEvent {
             routing_key: routing_key.to_owned(),
             dedup_key: match dedup_key {
                 Some(dedup_key) => dedup_key.to_owned(),
-                None => Uuid::new_v4().hyphenated().to_string(),
+                None => Uuid::new_v4().to_string(), //.hyphenated().to_string(),
             },
             links: vec![],
             payload: TriggerEventPayload {
@@ -125,11 +124,10 @@ impl EventManager {
         let response = self
             .client
             .post("https://events.pagerduty.com/v2/enqueue")
-            .header(ContentType(mime::APPLICATION_JSON))
             .body(payload)
             .send()?;
         match response.status() {
-            StatusCode::Accepted => Ok(trigger_event.dedup_key),
+            StatusCode::ACCEPTED => Ok(trigger_event.dedup_key),
             _ => Err(format!("invalid status code: {}", response.status()).into()),
         }
     }
@@ -141,11 +139,10 @@ impl EventManager {
         let response = self
             .client
             .post("https://events.pagerduty.com/v2/enqueue")
-            .header(ContentType(mime::APPLICATION_JSON))
             .body(payload)
             .send()?;
         match response.status() {
-            StatusCode::Accepted => Ok(()),
+            StatusCode::ACCEPTED => Ok(()),
             _ => Err(format!("invalid status code: {}", response.status()).into()),
         }
     }
